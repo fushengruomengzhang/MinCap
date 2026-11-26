@@ -1,39 +1,62 @@
-# MiniCap
+# MiniCapture
 
-#### 介绍
-{**以下是 Gitee 平台说明，您可以替换此简介**
-Gitee 是 OSCHINA 推出的基于 Git 的代码托管平台（同时支持 SVN）。专为开发者提供稳定、高效、安全的云端软件开发协作平台
-无论是个人、团队、或是企业，都能够用 Gitee 实现代码托管、项目管理、协作开发。企业项目请看 [https://gitee.com/enterprises](https://gitee.com/enterprises)}
+轻量 macOS 菜单栏截图 / 录屏工具。支持就地标注、复制、保存、钉图；另有录屏与 GIF。
 
-#### 软件架构
-软件架构说明
+## 要求
 
+- macOS 15+
+- Apple Silicon（arm64）
 
-#### 安装教程
+## 功能概览
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+| 能力 | 说明 |
+|------|------|
+| 截图 | 微信风格框选，窗口吸附，就地标注 |
+| 标注 | 矩形 / 圆形 / 三角形 / 六边形、箭头、画笔、马赛克、文字等 |
+| 结果 | 复制到剪贴板、保存文件、钉在桌面 |
+| 录屏 | 区域录屏（可选麦克风） |
+| GIF | 录制为 GIF |
+| 长截图 | 选区内自动滚动拼接 |
 
-#### 使用说明
+## 快捷键（默认）
 
-1.  xxxx
-2.  xxxx
-3.  xxxx
+| 功能 | 快捷键      |
+|----|----------|
+| 截图 | ⌘ + `.`  |
+| 录屏 | ⌥ + `.` |
 
-#### 参与贡献
+快捷键可在 **菜单栏 → 设置** 中自行绑定。修饰键不区分左右。
 
-1.  Fork 本仓库
-2.  新建 Feat_xxx 分支
-3.  提交代码
-4.  新建 Pull Request
+## 权限
 
+首次使用请授予：
 
-#### 特技
+- **屏幕录制**
+- **辅助功能**（按系统提示）
 
-1.  使用 Readme\_XXX.md 来支持不同的语言，例如 Readme\_en.md, Readme\_zh.md
-2.  Gitee 官方博客 [blog.gitee.com](https://blog.gitee.com)
-3.  你可以 [https://gitee.com/explore](https://gitee.com/explore) 这个地址来了解 Gitee 上的优秀开源项目
-4.  [GVP](https://gitee.com/gvp) 全称是 Gitee 最有价值开源项目，是综合评定出的优秀开源项目
-5.  Gitee 官方提供的使用手册 [https://gitee.com/help](https://gitee.com/help)
-6.  Gitee 封面人物是一档用来展示 Gitee 会员风采的栏目 [https://gitee.com/gitee-stars/](https://gitee.com/gitee-stars/)
+部分系统版本还需在「系统设置 → 菜单栏」允许显示菜单栏图标。
+
+## 本机构建
+
+```bash
+./build.sh          # 编译、签名并安装到 /Applications
+open /Applications/MiniCapture.app
+```
+
+其它命令：
+
+```bash
+./build.sh dmg        # 生成可分享的 DMG → .build/dist/MiniCapture-<version>.dmg
+./build.sh test       # 运行单元测试
+./build.sh help
+```
+
+本机构建使用本地签名证书（或 ad-hoc）。DMG 内应用为 ad-hoc 签名，便于拷贝到其它 Mac。
+
+## 安装 DMG（发给别人）
+
+1. 双击 `.dmg`
+2. 将 `MiniCapture.app` 拖到「应用程序」
+3. 在「应用程序」中打开 MiniCapture
+4. 若提示无法验证开发者：关闭弹窗 → **系统设置 → 隐私与安全性 → 仍要打开**
+5. 按提示授予屏幕录制等权限，查看菜单栏右侧 MC 图标
