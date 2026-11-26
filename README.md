@@ -1,5 +1,8 @@
 # MiniCapture
 
+[https://gitee.com/fusheng_zhang/mini-cap](https://gitee.com/fusheng_zhang/mini-cap)
+[https://github.com/fushengruomengzhang/MinCap](https://github.com/fushengruomengzhang/MinCap)
+
 轻量 macOS 菜单栏截图 / 录屏工具。支持就地标注、复制、保存、钉图；另有录屏与 GIF。
 
 ## 要求
@@ -36,24 +39,7 @@
 
 部分系统版本还需在「系统设置 → 菜单栏」允许显示菜单栏图标。
 
-## 本机构建
-
-```bash
-./build.sh          # 编译、签名并安装到 /Applications
-open /Applications/MiniCapture.app
-```
-
-其它命令：
-
-```bash
-./build.sh dmg        # 生成可分享的 DMG → .build/dist/MiniCapture-<version>.dmg
-./build.sh test       # 运行单元测试
-./build.sh help
-```
-
-本机构建使用本地签名证书（或 ad-hoc）。DMG 内应用为 ad-hoc 签名，便于拷贝到其它 Mac。
-
-## 安装 DMG（发给别人）
+## 安装 DMG
 
 1. 双击 `.dmg`
 2. 将 `MiniCapture.app` 拖到「应用程序」
